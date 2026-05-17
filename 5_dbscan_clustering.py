@@ -20,7 +20,7 @@ def compare(df, name):
     axes[0].scatter(df.iloc[:,0], df.iloc[:,1], c='blue', s=100); axes[0].set_title('Original')
     axes[1].scatter(df.iloc[:,0], df.iloc[:,1], c=dbs, cmap='viridis', s=100); axes[1].set_title(f'DBSCAN')
     axes[2].scatter(df.iloc[:,0], df.iloc[:,1], c=km, cmap='viridis', s=100); axes[2].scatter(KMeans(n_clusters=2,random_state=42,n_init=10).fit(Xs).cluster_centers_[:,0],KMeans(n_clusters=2,random_state=42,n_init=10).fit(Xs).cluster_centers_[:,1],c='red',marker='X',s=200); axes[2].set_title('K-means')
-    plt.savefig(f'/Users/sapatmohit18/Desktop/ML/dbscan_{name.lower()}.png'); plt.close()
+    plt.savefig(f'dbscan_{name.lower()}.png'); plt.close()
 
 compare(df1, 'Location')
 compare(df2, 'Travel')

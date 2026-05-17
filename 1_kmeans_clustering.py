@@ -13,7 +13,7 @@ X_scaled = scaler.fit_transform(X)
 
 # Elbow method
 inertias = [KMeans(n_clusters=k, random_state=42, n_init=10).fit(X_scaled).inertia_ for k in range(1,7)]
-plt.figure(figsize=(8,4)); plt.plot(range(1,7), inertias, 'bo-'); plt.xlabel('k'); plt.ylabel('Inertia'); plt.title('Elbow'); plt.savefig('/Users/sapatmohit18/Desktop/ML/kmeans_elbow.png'); plt.close()
+plt.figure(figsize=(8,4)); plt.plot(range(1,7), inertias, 'bo-'); plt.xlabel('k'); plt.ylabel('Inertia'); plt.title('Elbow'); plt.savefig('kmeans_elbow.png'); plt.close()
 
 # K-means
 kmeans = KMeans(n_clusters=3, random_state=42, n_init=10).fit(X_scaled)
@@ -23,5 +23,5 @@ print("\nClusters:", df['Cluster'].value_counts().to_dict())
 plt.figure(figsize=(8,6))
 for i in range(3): plt.scatter(X[kmeans.labels_==i,0], X[kmeans.labels_==i,1], s=100, label=f'Cluster {i}')
 plt.scatter(scaler.inverse_transform(kmeans.cluster_centers_)[:,0], scaler.inverse_transform(kmeans.cluster_centers_)[:,1], c='black', marker='X', s=200, label='Centroids')
-plt.xlabel('StudyHours'); plt.ylabel('TestScore'); plt.title('K-means Clusters'); plt.legend(); plt.savefig('/Users/sapatmohit18/Desktop/ML/kmeans_clusters.png'); plt.close()
+plt.xlabel('StudyHours'); plt.ylabel('TestScore'); plt.title('K-means Clusters'); plt.legend(); plt.savefig('kmeans_clusters.png'); plt.close()
 print("\nDone!")

@@ -30,5 +30,5 @@ h, x_min, x_max = 0.02, X_test_s[:,0].min()-1, X_test_s[:,1].min()-1
 xx, yy = np.meshgrid(np.arange(x_min, X_test_s[:,0].max()+1, h), np.arange(x_min, X_test_s[:,1].max()+1, h))
 plt.figure(figsize=(10,6)); plt.contourf(xx,yy,best.predict(np.c_[xx.ravel(),yy.ravel()]).reshape(xx.shape), alpha=0.3, cmap='coolwarm')
 plt.scatter(X_test_s[:,0], X_test_s[:,1], c=y_test, cmap='coolwarm', edgecolors='k', s=100)
-plt.xlabel('Age (scaled)'); plt.ylabel('Income (scaled)'); plt.title('SVM Decision Boundary'); plt.savefig('/Users/sapatmohit18/Desktop/ML/svm_rbf_boundary.png'); plt.close()
+plt.xlabel('Age (scaled)'); plt.ylabel('Income (scaled)'); plt.title('SVM Decision Boundary'); plt.savefig('svm_rbf_boundary.png'); plt.close()
 print("\nDone!")

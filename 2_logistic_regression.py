@@ -27,6 +27,6 @@ print(f"ROC-AUC: {roc_auc_score(y_test,y_prob):.4f}")
 print(f"Confusion Matrix:\n{confusion_matrix(y_test,y_pred)}")
 
 # Plots
-plt.figure(figsize=(8,6)); plt.plot(*roc_curve(y_test,y_prob)[:2], 'b-', label=f'AUC={roc_auc_score(y_test,y_prob):.4f}'); plt.plot([0,1],[0,1],'r--'); plt.xlabel('FPR'); plt.ylabel('TPR'); plt.title('ROC Curve'); plt.legend(); plt.savefig('/Users/sapatmohit18/Desktop/ML/logistic_regression_roc.png'); plt.close()
-plt.figure(figsize=(6,5)); plt.imshow(confusion_matrix(y_test,y_pred), cmap='Blues'); plt.colorbar(); plt.xlabel('Pred'); plt.ylabel('Actual'); plt.xticks([0,1],['Fail','Pass']); plt.yticks([0,1],['Fail','Pass']); plt.savefig('/Users/sapatmohit18/Desktop/ML/logistic_regression_cm.png'); plt.close()
+plt.figure(figsize=(8,6)); plt.plot(*roc_curve(y_test,y_prob)[:2], 'b-', label=f'AUC={roc_auc_score(y_test,y_prob):.4f}'); plt.plot([0,1],[0,1],'r--'); plt.xlabel('FPR'); plt.ylabel('TPR'); plt.title('ROC Curve'); plt.legend(); plt.savefig('logistic_regression_roc.png'); plt.close()
+plt.figure(figsize=(6,5)); plt.imshow(confusion_matrix(y_test,y_pred), cmap='Blues'); plt.colorbar(); plt.xlabel('Pred'); plt.ylabel('Actual'); plt.xticks([0,1],['Fail','Pass']); plt.yticks([0,1],['Fail','Pass']); plt.savefig('logistic_regression_cm.png'); plt.close()
 print("\nDone!")

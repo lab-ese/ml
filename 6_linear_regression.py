@@ -39,5 +39,5 @@ axes[0,0].scatter(y_test, y_pred, s=100); axes[0,0].plot([y_test.min(),y_test.ma
 axes[0,1].scatter(y_pred, y_test-y_pred, s=100); axes[0,1].axhline(y=0, color='r', linestyle='--'); axes[0,1].set_xlabel('Predicted'); axes[0,1].set_ylabel('Residual'); axes[0,1].set_title('Residual Plot')
 axes[1,0].barh(X.columns, np.abs(model.coef_)); axes[1,0].set_xlabel('|Coefficient|'); axes[1,0].set_title('Feature Importance')
 axes[1,1].hist(y_test-y_pred, bins=8, edgecolor='black'); axes[1,1].set_xlabel('Residual'); axes[1,1].set_title('Residual Distribution')
-plt.tight_layout(); plt.savefig('/Users/sapatmohit18/Desktop/ML/linear_regression_analysis.png'); plt.close()
+plt.tight_layout(); plt.savefig('linear_regression_analysis.png'); plt.close()
 print("\nDone!")

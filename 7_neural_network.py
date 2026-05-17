@@ -46,6 +46,6 @@ for arch in [(8,), (16,), (8, 4), (16, 8)]:
     print(f"  {arch}: {accuracy_score(y_test, a.predict(X_test_s)):.4f}")
 
 # Plots
-plt.figure(figsize=(10,5)); plt.plot(nn.loss_curve_,'b-'); plt.xlabel('Iteration'); plt.ylabel('Loss'); plt.title('Training Curve'); plt.savefig('/Users/sapatmohit18/Desktop/ML/neural_network_loss.png'); plt.close()
-plt.figure(figsize=(8,6)); plt.imshow(cm, cmap='Blues'); plt.colorbar(); plt.xticks([0,1],['Failed','Passed']); plt.yticks([0,1],['Failed','Passed']); plt.xlabel('Predicted'); plt.ylabel('Actual'); plt.title(f'CM ({acc*100:.0f}%)'); plt.savefig('/Users/sapatmohit18/Desktop/ML/neural_network_cm.png'); plt.close()
+plt.figure(figsize=(10,5)); plt.plot(nn.loss_curve_,'b-'); plt.xlabel('Iteration'); plt.ylabel('Loss'); plt.title('Training Curve'); plt.savefig('neural_network_loss.png'); plt.close()
+plt.figure(figsize=(8,6)); plt.imshow(cm, cmap='Blues'); plt.colorbar(); plt.xticks([0,1],['Failed','Passed']); plt.yticks([0,1],['Failed','Passed']); plt.xlabel('Predicted'); plt.ylabel('Actual'); plt.title(f'CM ({acc*100:.0f}%)'); plt.savefig('neural_network_cm.png'); plt.close()
 print("\nDone!")

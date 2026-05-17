@@ -21,7 +21,7 @@ dt_acc = accuracy_score(y_test, dt.predict(X_test))
 print(f"\nDecision Tree Accuracy: {dt_acc:.4f}")
 
 # Visualize
-plt.figure(figsize=(16,8)); plot_tree(dt, feature_names=X.columns, class_names=['Setosa','Versicolor'], filled=True, rounded=True); plt.savefig('/Users/sapatmohit18/Desktop/ML/decision_tree.png'); plt.close()
+plt.figure(figsize=(16,8)); plot_tree(dt, feature_names=X.columns, class_names=['Setosa','Versicolor'], filled=True, rounded=True); plt.savefig('decision_tree.png'); plt.close()
 
 # Random Forest
 rf = RandomForestClassifier(n_estimators=10, random_state=42).fit(X_train, y_train)
@@ -29,7 +29,7 @@ rf_acc = accuracy_score(y_test, rf.predict(X_test))
 print(f"Random Forest Accuracy: {rf_acc:.4f}")
 
 # Feature importance
-plt.figure(figsize=(10,5)); x = np.arange(len(X.columns)); plt.bar(x-0.15, dt.feature_importances_, 0.3, label='DT'); plt.bar(x+0.15, rf.feature_importances_, 0.3, label='RF'); plt.xticks(x, X.columns, rotation=45); plt.title('Feature Importance'); plt.legend(); plt.savefig('/Users/sapatmohit18/Desktop/ML/feature_importance.png'); plt.close()
+plt.figure(figsize=(10,5)); x = np.arange(len(X.columns)); plt.bar(x-0.15, dt.feature_importances_, 0.3, label='DT'); plt.bar(x+0.15, rf.feature_importances_, 0.3, label='RF'); plt.xticks(x, X.columns, rotation=45); plt.title('Feature Importance'); plt.legend(); plt.savefig('feature_importance.png'); plt.close()
 
 print(f"\nDT Report:\n{classification_report(y_test, dt.predict(X_test), target_names=['Setosa','Versicolor'])}")
 print(f"RF Report:\n{classification_report(y_test, rf.predict(X_test), target_names=['Setosa','Versicolor'])}")
