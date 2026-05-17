@@ -4,12 +4,24 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
-# Dataset
-df = pd.DataFrame({'Area': [1000,1500,1200,1800,2000,900,1600,1400,1700,1100,2200,1300,1900,1050,1750],
-                   'Bedrooms': [2,3,2,4,4,1,3,3,4,2,5,2,4,2,4],
-                   'Age': [10,5,8,3,2,15,6,7,4,12,1,9,3,11,5],
-                   'Distance': [5,8,6,10,12,3,7,9,11,4,14,5,10,4,8],
-                   'Price': [150,220,170,280,320,120,230,200,270,140,350,160,290,135,260]})
+# Dataset (100 synthetic samples with realistic relationships)
+np.random.seed(42)
+n_samples = 100
+area = np.random.randint(800, 2500, n_samples)
+bedrooms = np.clip(np.round(area / 500 + np.random.normal(0, 0.5)), 1, 5).astype(int)
+age = np.random.randint(1, 20, n_samples)
+distance = np.clip(np.round(area / 150 + np.random.normal(0, 2)), 2, 20).astype(int)
+
+# Price depends logically on all features with realistic weights and some random noise
+price = 50 + 0.1 * area + 15 * bedrooms - 2 * age - 1.5 * distance + np.random.normal(0, 10, n_samples)
+
+df = pd.DataFrame({
+    'Area': area,
+    'Bedrooms': bedrooms,
+    'Age': age,
+    'Distance': distance,
+    'Price': price
+})
 print("Data:\n", df)
 
 print("\nCorrelations with Price:")
